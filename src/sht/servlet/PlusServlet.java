@@ -36,7 +36,7 @@ public class PlusServlet extends HttpServlet {
 			PlusBean bean=new PlusBean(i1,i2,answer);
 			request.setAttribute("plus", bean);
 
-			RequestDispatcher rd=request.getRequestDispatcher("/AnswerServlet");
+			RequestDispatcher rd=request.getRequestDispatcher("/Answer.jsp");
 			rd.forward(request, response);
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

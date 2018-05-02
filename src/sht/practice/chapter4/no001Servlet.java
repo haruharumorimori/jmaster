@@ -1,4 +1,4 @@
-package sht.practice;
+package sht.practice.chapter4;
 
 import java.io.IOException;
 import java.io.PrintWriter;
