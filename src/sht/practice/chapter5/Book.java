@@ -2,22 +2,22 @@ package sht.practice.chapter5;
 
 public class Book {
 	Book(){}
-	private String name;
-	private int much;
-	public String getName() {
-		return name;
+	private String title;
+	private int money;
+	public String getTitle() {
+		return title;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setTitle(String title) {
+		this.title = title;
 	}
-	public int getMuch() {
-		return much;
+	public int getMoney() {
+		return money;
 	}
-	public void setMuch(int much) {
-		this.much = much;
+	public void setMoney(int money) {
+		this.money = money;
 	}
-	Book(String name,int much){
-		this.name=name;
-		this.much=much;
+	Book(String title,int money){
+		this.title=title;
+		this.money=money;
 	}
 }

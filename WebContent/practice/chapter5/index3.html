@@ -5,16 +5,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="/jmaster/AuthServlet2" method="get">
+<form action="/jmaster/AuthServlet2" method="post">
 名前:<input type="text" name="name"/><br>
 パスワード:<input type="password" name="pass"><br>
 <input type="hidden" name="action" value="Login"/>
 <input type="submit" value="ログイン"/>
 <hr/>
-商品を選択してください
-<a href="/jmaster/CartServet?name='バカの壁'&much='3737'">バカの壁</a>
-<a href="/jmaster/CartServet?name='アホの壁'&much='4329320'">アホの壁</a>
-<a href="/jmaster/CartServet?name='ドジの壁'&much='58132'">ドジの壁</a>
+
+<a href="/jmaster/BookServlet">本を追加する</a>
+
 <br><br>
 <a href="/jmaster/AuthServlet2?action=Logout">ログアウト</a>
 </form>
