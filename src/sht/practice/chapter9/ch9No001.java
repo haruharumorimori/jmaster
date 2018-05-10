@@ -25,6 +25,8 @@ public class ch9No001 extends HttpServlet {
 		double BMI=bmi.BMICalc(heavy, height);
 		BMIBeans bean=new BMIBeans(height,heavy,BMI);
 		request.setAttribute("debu", bean);
+		
+		if(BMI<=)
 		RequestDispatcher rd=request.getRequestDispatcher("/practice/chapter9/No001.jsp");
 		rd.forward(request, response);
 	}

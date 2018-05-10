@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	request.getAttribute("debu");
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-あなたのBMIは${debu.getBMI()}<br>
-
+<form action="/jmaster/AppServlet" method="post">
+name<input type="text" name="naming"/><br>
+pass<input type="password" name="password"/><br>
+<input type="hidden" name="action" value="login"/>
+<input type="submit" value="login"/>
+</form>
 </body>
 </html>

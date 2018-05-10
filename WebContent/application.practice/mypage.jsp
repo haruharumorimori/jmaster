@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	request.getAttribute("debu");
+	session.getAttribute("name1");
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -10,7 +11,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-あなたのBMIは${debu.getBMI()}<br>
+<h1>
+${name1}様お待ちしておりました。ようこそ！
 
+</h1>
 </body>
 </html>
