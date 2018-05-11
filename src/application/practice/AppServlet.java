@@ -19,11 +19,10 @@ import sht.dao.DAOException;
 public class AppServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html;charset=UTF-8");
-		PrintWriter out=response.getWriter();
-		String action=request.getParameter("action");
 
-		if(action.equals("login")) {
+		String action=request.getParameter("action");
+	//try {
+		if(action !=null&&action.equals("login")) {
 			AppDAO ad=new AppDAO();
 			String name=request.getParameter("naming");
 			String pass=request.getParameter("password");
@@ -39,13 +38,14 @@ public class AppServlet extends HttpServlet {
 					}
 					if(name.equals(NAME)&&pass.equals(PASS)) {
 						HttpSession hs=request.getSession();
-						hs.setAttribute("login", "true");
 						hs.setAttribute("name1", name);
 
 
 						RequestDispatcher rd=request.getRequestDispatcher("/application.practice/mypage.jsp");
 						rd.forward(request, response);
 					}else {
+						response.setContentType("text/html;charset=UTF-8");
+						PrintWriter out=response.getWriter();
 						out.println("<html><head><title></title></head><body>");
 						out.println("( ﾟДﾟ)ﾊｧ?");
 						out.println("<a href='/jmaster/application.practice/login.jsp'>戻る</a>");
@@ -56,7 +56,28 @@ public class AppServlet extends HttpServlet {
 					e.printStackTrace();
 			}
 		}
-	}
+		else if(action!=null&&action.equals("logout")) {
+			HttpSession hs=request.getSession(false);
+			if(hs !=null) {
+				hs.invalidate();
+				RequestDispatcher rd= request.getRequestDispatcher("/application.practice/login.jsp");
+				rd.forward(request, response);
+			}else {
+				RequestDispatcher rd=request.getRequestDispatcher("/application.practice/login.jsp");
+				rd.forward(request, response);
+			}
+		}else if(action==null) {
+			request.setAttribute("message", "不正ログインです");
+			RequestDispatcher rd=request.getRequestDispatcher("/application.practice/login.jsp");
+			rd.forward(request, response);
+		}
+
+//	}catch(NullPointerException e) {
+//		request.setAttribute("message", "不正ログインです");
+//		RequestDispatcher rd=request.getRequestDispatcher("/application.practice/login.jsp");
+//		rd.forward(request, response);
+//	}
+}
 
 
 
@@ -64,5 +85,4 @@ public class AppServlet extends HttpServlet {
 
 		doGet(request, response);
 	}
-
 }
