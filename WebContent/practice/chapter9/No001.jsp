@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%
 	request.getAttribute("debu");
+	request.getAttribute("message");
 %>
 <!DOCTYPE html>
 <html>
@@ -11,6 +12,6 @@
 </head>
 <body>
 あなたのBMIは${debu.getBMI()}<br>
-
+はっきり言って${message}
 </body>
 </html>
